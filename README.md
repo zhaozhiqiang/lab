@@ -5,3 +5,6 @@
   
 ## correct.py
 - Python template.
+
+## dic_tool.py
+- A tool to modify 欧路词库.
