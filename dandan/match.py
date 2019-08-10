@@ -18,7 +18,8 @@ class Match:
             for match_row in self.table:
 
                 # 匹配到原数据时跳过
-                if row['ID'] == match_row['ID']:
+                if row['ID'] == match_row['ID'] \
+                        or row['HUA'] == match_row['HUA']:
                     continue
 
                 # 差值最小的数据就是最匹配的那一条
@@ -54,7 +55,7 @@ class Match:
 
                 # 单个数据差别太大就放弃
                 if abs_diff < self.MAX_DIFF[key]:
-                    diff_value += abs_diff * self.WEIGHT[key]
+                    diff_value += (abs_diff / float(left[key])) * self.WEIGHT[key]
         except ValueError:
             diff_value = -1
             pass
